@@ -155,7 +155,7 @@ func resourcesAvailableInAnyNUMANodes(lh logr.Logger, info *filterInfo, resource
 
 	// at least one NUMA node is available
 	ret := !bitmask.IsEmpty()
-	lh.V(2).Info("final verdict", "suitable", ret, "numaCell", numaID)
+	lh.V(3).Info("final verdict", "suitable", ret, "numaCell", numaID)
 	return numaID, ret, "generic"
 }
 
