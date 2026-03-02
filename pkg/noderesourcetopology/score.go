@@ -161,7 +161,7 @@ func containerScopeScore(lh logr.Logger, pod *v1.Pod, info *scoreInfo, scorerFn 
 		lh.V(6).Info("container scope scoring", "container", container.Name, "score", contScore[i])
 	}
 	finalScore := int64(stat.Mean(contScore, nil))
-	lh.V(2).Info("container scope scoring final node score", "finalScore", finalScore)
+	lh.V(3).Info("container scope scoring final node score", "finalScore", finalScore)
 	return finalScore, nil
 }
 
