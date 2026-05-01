@@ -1,0 +1,6 @@
+k8s.io/client-go v0.29.0 h1:KmlDtFcrdUzOYrBhXHgKw5ycWzc3ryPX5mQe0SkG3y8=
+k8s.io/client-go v0.29.0/go.mod h1:yLkXH4HKMAywcrD82KMSmfYg2DlE8mepPR4JGSo5n38=
+k8s.io/component-base v0.29.0 h1:T7rjd5wvLnPBV1vC4zWd/iWRbV8Mdxs+nGaoaFzGw3s=
+k8s.io/component-base v0.29.0/go.mod h1:sADonFTQ9Zc9yFLghpDpmNXEdHyQmFIGbiuZbqAXQ1M=
+k8s.io/kubernetes v1.29.0 h1:DOLN7g8+nnAYBi8JHoW0+/MCrZKDPIqAxzLCXDXd0cg=
+k8s.io/kubernetes v1.29.0/go.mod h1:9kztbUQf9stVDcIYXx+BX3nuGCsAQDsuClkGMpPs3pA=
