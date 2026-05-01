@@ -30,6 +30,11 @@ import (
 	"sigs.k8s.io/scheduler-plugins/pkg/networkaware/topologicalsort"
 	"sigs.k8s.io/scheduler-plugins/pkg/noderesources"
 	"sigs.k8s.io/scheduler-plugins/pkg/noderesourcetopology"
+	// chijik plugins
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/bandwidthscore"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/predictiveenqueue"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/streamaffinity"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/transcoderfilter"
 	"sigs.k8s.io/scheduler-plugins/pkg/podstate"
 	"sigs.k8s.io/scheduler-plugins/pkg/preemptiontoleration"
 	"sigs.k8s.io/scheduler-plugins/pkg/qos"
@@ -64,6 +69,12 @@ func main() {
 		// app.WithPlugin(crossnodepreemption.Name, crossnodepreemption.New),
 		app.WithPlugin(podstate.Name, podstate.New),
 		app.WithPlugin(qos.Name, qos.New),
+
+		// chijik plugins
+		app.WithPlugin(bandwidthscore.Name, bandwidthscore.New),
+		app.WithPlugin(transcoderfilter.Name, bandwidthscore.New),
+		app.WithPlugin(streamaffinity.Name, streamaffinity.New),
+		app.WithPlugin(predictiveenqueue.Name, predictiveenqueue.New),
 	)
 
 	code := cli.Run(command)
