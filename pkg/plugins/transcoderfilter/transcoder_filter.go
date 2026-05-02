@@ -26,6 +26,7 @@ var _ fwk.FilterPlugin = &TranscoderFilter{}
 const (
 	BandwidthUsageAnnotation = "chijik.io/bandwidth-usage"
 	DefaultBwThreshold       = 0.9 // Filter는 90%로 더 관대하게
+	WorkloadLabel="chijik.io/workload"
 )
 
 func New(ctx context.Context, _ runtime.Object, h fwk.Handle) (fwk.Plugin, error) {
@@ -54,7 +55,7 @@ func (pl *TranscoderFilter) Filter(
 
 	// 트랜스코딩 Pod만 필터링 적용
 	// 레이블: chijik.io/workload=transcoder
-	if pod.Labels["chijik.io/workload"] != "transcoder" {
+	if pod.Labels[WorkloadLabel] != "transcoder" {
 		return nil // 트랜스코딩 Pod 아니면 필터 통과
 	}
 
