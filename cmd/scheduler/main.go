@@ -38,6 +38,11 @@ import (
 	"sigs.k8s.io/scheduler-plugins/pkg/trimaran/lowriskovercommitment"
 	"sigs.k8s.io/scheduler-plugins/pkg/trimaran/targetloadpacking"
 
+	// chijik scheduler-plugins
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/bandwidthscore"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/transcoderfilter"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/streamaffinity"
+	"sigs.k8s.io/scheduler-plugins/pkg/plugins/predictiveenqueue"
 	// Ensure scheme package is initialized.
 	_ "sigs.k8s.io/scheduler-plugins/apis/config/scheme"
 )
@@ -62,6 +67,13 @@ func main() {
 		// app.WithPlugin(crossnodepreemption.Name, crossnodepreemption.New),
 		app.WithPlugin(podstate.Name, podstate.New),
 		app.WithPlugin(qos.Name, qos.New),
+
+		// chijik scheduler-plugins
+		// Chijik streaming scheduler plugins
+		app.WithPlugin(bandwidthscore.Name, bandwidthscore.New),
+		app.WithPlugin(transcoderfilter.Name, transcoderfilter.New),
+		app.WithPlugin(streamaffinity.Name, streamaffinity.New),
+		app.WithPlugin(predictiveenqueue.Name, predictiveenqueue.New),
 	)
 
 	code := cli.Run(command)
