@@ -17,4 +17,4 @@ hack/tools/bin/*
 *.swp
 *.sublime-project
 *.sublime-workspace
-*~
+*~bin/
