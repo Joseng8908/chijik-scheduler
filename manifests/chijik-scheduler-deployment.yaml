@@ -73,6 +73,9 @@ spec:
         component: chijik-scheduler
     spec:
       serviceAccountName: chijik-scheduler
+      nodeName: benchmark-control-plane
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: chijik-scheduler
           image: chijik-scheduler:latest
